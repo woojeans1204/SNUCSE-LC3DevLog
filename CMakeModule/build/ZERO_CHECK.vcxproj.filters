@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\SNUCSE-LC3DevLog\CMakeTutorial2\build\CMakeFiles\1e37266ce310c4b3ed1665bd7e3c35b1\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{045CC893-FCBC-3AE3-9F6C-2BE994A653A8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
