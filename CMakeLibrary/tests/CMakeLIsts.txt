@@ -1,0 +1,13 @@
+# tests/CMakeLists.txt
+
+# 테스트 실행 파일 생성
+add_executable(TestMain TestMain.cpp)
+
+# 테스트 실행 파일이 MyLibrary를 링크하도록 설정
+target_link_libraries(TestMain PRIVATE MyLibrary)
+
+# 테스트 실행 파일이 헤더 파일을 찾을 수 있도록 포함 경로 설정
+target_include_directories(TestMain PRIVATE
+    ${PROJECT_SOURCE_DIR}/src/MathModule
+    ${PROJECT_SOURCE_DIR}/src/UtilityModule
+)
