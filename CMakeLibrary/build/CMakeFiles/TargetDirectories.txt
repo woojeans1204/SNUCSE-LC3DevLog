@@ -1,0 +1,4 @@
+C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/SNUCSE-LC3DevLog/CMakeLibrary/build/CMakeFiles/MyLibrary.dir
+C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/SNUCSE-LC3DevLog/CMakeLibrary/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/SNUCSE-LC3DevLog/CMakeLibrary/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/awj12/OneDrive/바탕 화면/대학교/GitHub/SNUCSE-LC3DevLog/CMakeLibrary/build/tests/CMakeFiles/TestMain.dir

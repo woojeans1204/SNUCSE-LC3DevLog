@@ -1,0 +1,4 @@
+# src/UtilityModule/CMakeLists.txt
+
+# UtilityModule 모듈 설정 (특별한 설정이 필요 없으므로 비워둡니다.)
+# 추가적인 설정이 필요하면 여기서 작성하세요.

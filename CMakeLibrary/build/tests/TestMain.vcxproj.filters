@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\SNUCSE-LC3DevLog\CMakeLibrary\tests\TestMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\awj12\OneDrive\바탕 화면\대학교\GitHub\SNUCSE-LC3DevLog\CMakeLibrary\tests\CMakeLIsts.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5FE752F5-4CE4-3D49-9886-965C1A0E8E58}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
