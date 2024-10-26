@@ -34,6 +34,31 @@ LC-3 어셈블리어의 어셈블러와 시뮬레이터를 구현하고, 이를 
   - 정적 라이브러리 빌드
   - .NET 환경에서의 호환성 확보
 
+## Obj 파일 형식
+
+````markdown
+Obj 파일은 주소값 이후 연속된 명령어들로 구성됩니다.
+Little Endian 방식으로 인코딩됩니다.
+
+예시 Input: `input.asm`
+
+```
+.ORIG x3000               ; 시작 주소 지정
+START  ADD R1, R2, R3     ; x1283
+       AND R4, R5, #10    ; x586A
+       NOT R6, R7         ; x9DFF
+       RET                ; C1C0
+.END                      ; 프로그램 종료
+
+```
+````
+
+```
+Output: `output.obj`
+
+00 30 83 12 6A 58 FF 9D C0 C1
+```
+
 ## 개발 일지
 
 ### 2024-10-22
@@ -105,10 +130,20 @@ LC3Emulator/
 - **진행 사항**:
 
   - Parser, SymbolTable, InstructionSet를 활용하여 2-Pass 어셈블러를 구현
+  - obj 파일 형식을 정의
   - Assembler 클래스를 부분적으로 구현함
 
 - **특이 사항**:
   - LC-3은 기본적으로 Big Endian 인코딩 방식을 사용하지만 현대 아키텍쳐들은 Little Endian을 사용
   - 이 프로젝트에서는 구현의 편의를 위해 Little Endian 인코딩을 사용함
   - 현재 Assembler 작동 확인 하였지만, 다른 명령어 구현 등 미완성된 부분이 존재
+  - 일단 obj파일을 구성하는 방향으로 수정, 구현함
   - Simulator 클래스도 불완전하게라도 먼저 구현 후 미완성된 부분들을 구현
+
+```
+
+```
+
+```
+
+```
