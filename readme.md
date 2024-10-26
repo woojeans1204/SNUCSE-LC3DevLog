@@ -2,6 +2,7 @@
 
 - 서울대학교 컴퓨터공학부 24-2 컴퓨터프로그래밍 강의
 - C++ 프로젝트 과제
+- 1차 결과물: https://github.com/woojeans1204/LC-3Emulator
 
 ## 목표
 
@@ -56,5 +57,58 @@ LC-3 어셈블리어의 어셈블러와 시뮬레이터를 구현하고, 이를 
 
   - CMakeLibrary 완성
   - 어셈블러 구현을 위한 개념 학습
+  - 어셈블러 구현 시 obj파일 형식을 모르는 문제 발생
+  - obj 파일을 생성하는 대신 어셈블러와 시뮬레이터를 합치는 방식으로 프로그램 구현 방향 설정
+  - 1차 목표 진행 시작
 
-- **주요 학습 내용**:
+- **개발 방향**:
+
+  - **1차 목표**: CLI의 형태로 어셈블, 시뮬레이션 기능을 통합한 LC-3 에뮬레이터 구현 (라이브러리의 형태로 빌드)
+  - **2차 목표**: VS, 윈도우 폼을 이용해 GUI를 완성
+  - **3차 목표**: 그 외 학습을 위한 툴이나 튜토리얼 등을 구현해 학습 프로그램을 최종 완성
+
+- **예상 프로젝트 구조**
+
+```
+LC3Emulator/
+├── CMakeLists.txt
+├── src/
+│   ├── main.cpp
+│   ├── Assembler.h
+│   ├── Assembler.cpp
+│   ├── Simulator.h
+│   ├── Simulator.cpp
+└── tests/
+    ├── CMakeLists.txt
+    ├── AssemblerTests.cpp
+    └── SimulatorTests.cpp
+```
+
+### 2024-10-24
+
+- **진행 사항**:
+
+  - 프로젝트 생성 (https://github.com/woojeans1204/LC-3Emulator)
+  - 코드를 Token 단위로 쪼개 저장하는 Parser 일부 구현
+  - 다중 레이블 (한 라인에 레이블이 여러개 존재) 처리
+  - 1차 패싱에서 각 label의 이름과 주소를 저장하는 SymbolTable을 일부 구현
+  - 명령어 Encoding을 담당하는 InstructionSet 일부 구현
+
+- **세부 구현 방향**:
+  - Parser, SymbolTable, InstructionSet의 주요 기능들 먼저 구현 후 Assembler를 부분적으로 먼저 구현
+  - 그 후, 각 클래스의 남은 부분들을 차례대로 구현
+  - **Assembler**: Parser, SymbolTable, InstructionSet
+  - **Simulator**: Memory, RegisterFile, Decoder, InstructionClasses
+
+### 2024-10-26
+
+- **진행 사항**:
+
+  - Parser, SymbolTable, InstructionSet를 활용하여 2-Pass 어셈블러를 구현
+  - Assembler 클래스를 부분적으로 구현함
+
+- **특이 사항**:
+  - LC-3은 기본적으로 Big Endian 인코딩 방식을 사용하지만 현대 아키텍쳐들은 Little Endian을 사용
+  - 이 프로젝트에서는 구현의 편의를 위해 Little Endian 인코딩을 사용함
+  - 현재 Assembler 작동 확인 하였지만, 다른 명령어 구현 등 미완성된 부분이 존재
+  - Simulator 클래스도 불완전하게라도 먼저 구현 후 미완성된 부분들을 구현
