@@ -37,7 +37,7 @@ LC-3 어셈블리어의 어셈블러와 시뮬레이터를 구현하고, 이를 
 ## Obj 파일 형식
 
 ````markdown
-Obj 파일은 주소값 이후 연속된 명령어들로 구성됩니다.
+Obj 파일은 주소값 과 명령어의 연속으로 구성됩니다.
 Little Endian 방식으로 인코딩됩니다.
 
 예시 Input: `input.asm`
@@ -45,7 +45,7 @@ Little Endian 방식으로 인코딩됩니다.
 ```
 .ORIG x3000               ; 시작 주소 지정
 START  ADD R1, R2, R3     ; x1283
-       AND R4, R5, #10    ; x586A
+       AND R4, R5, #10    ; x596A
        NOT R6, R7         ; x9DFF
        RET                ; C1C0
 .END                      ; 프로그램 종료
@@ -56,7 +56,7 @@ START  ADD R1, R2, R3     ; x1283
 ```
 Output: `output.obj`
 
-00 30 83 12 6A 58 FF 9D C0 C1
+00 30 83 12 01 30 6A 59 02 30 FF 9D 03 30 C0 C1
 ```
 
 ## 개발 일지
@@ -140,10 +140,99 @@ LC3Emulator/
   - 일단 obj파일을 구성하는 방향으로 수정, 구현함
   - Simulator 클래스도 불완전하게라도 먼저 구현 후 미완성된 부분들을 구현
 
-```
+### 2024-10-28
 
-```
+- **진행 사항**:
 
-```
+  - 기존 obj 형식의 문제점 발견
+  - obj 파일 형식 수정
+  - Memory 클래스 구현
+  - Register 클래스 구현
+  - Instruction 클래스 부분 구현
+  - LC3Emulator 클래스 구현 및 테스트 완료
 
+### 2024-10-29
+
+- **진행 사항**:
+
+  - Instruction.h와 LC3Emulator.h의 순환 참조 문제 발생
+  - 해결을 위해 Instruction.h에 LC3Emulator를 전방 선언
+  - Controller 클래스 구현 및 테스트 완료
+  - LC3Emulator 라이브러리 전반적으로 구현 완료, 1차 목표 부분 달성
+  - Encoder, Assembler 등 미완성된 부분들, 특히 구현 덜 된 명령어들 구현 중
+
+- **현재 프로젝트 구조**:
+
+```plaintext
+LC3Emulator/
+├── include/
+│   ├── Assembler/
+│   │   ├── Encoder.h
+│   │   ├── InstructionSet.h
+│   │   ├── Parser.h
+│   │   └── SymbolTable.h
+│   ├── Simulator/
+│   │   ├── Instructions/
+│   │   │   ├── Instruction.h
+│   │   │   ├── AddInstruction.h
+│   │   │   ├── AndInstruction.h
+│   │   │   ├── BrInstruction.h
+│   │   │   ├── HaltInstruction.h
+│   │   │   ├── JmpInstruction.h
+│   │   │   ├── JsrInstruction.h
+│   │   │   ├── JsrrInstruction.h
+│   │   │   ├── LdInstruction.h
+│   │   │   ├── LdiInstruction.h
+│   │   │   ├── LdrInstruction.h
+│   │   │   ├── LeaInstruction.h
+│   │   │   ├── NotInstruction.h
+│   │   │   ├── RetInstruction.h
+│   │   │   ├── StInstruction.h
+│   │   │   ├── StiInstruction.h
+│   │   │   ├── StrInstruction.h
+│   │   │   └── TrapInstruction.h
+│   │   ├── Decoder.h
+│   │   ├── Emulator.h
+│   │   ├── Memory.h
+│   │   └── RegisterFile.h
+│   └── Controller.h
+├── src/
+│   ├── Assembler/
+│   │   ├── Assembler.cpp
+│   │   ├── Encoder.cpp
+│   │   ├── InstructionSet.cpp
+│   │   ├── Parser.cpp
+│   │   └── SymbolTable.cpp
+│   ├── Simulator/
+│   │   ├── Instructions/
+│   │   │   ├── Instruction.cpp
+│   │   │   ├── AddInstruction.cpp
+│   │   │   ├── AndInstruction.cpp
+│   │   │   ├── BrInstruction.cpp
+│   │   │   ├── HaltInstruction.cpp
+│   │   │   ├── JmpInstruction.cpp
+│   │   │   ├── JsrInstruction.cpp
+│   │   │   ├── JsrrInstruction.cpp
+│   │   │   ├── LdInstruction.cpp
+│   │   │   ├── LdiInstruction.cpp
+│   │   │   ├── LdrInstruction.cpp
+│   │   │   ├── LeaInstruction.cpp
+│   │   │   ├── NotInstruction.cpp
+│   │   │   ├── RetInstruction.cpp
+│   │   │   ├── StInstruction.cpp
+│   │   │   ├── StiInstruction.cpp
+│   │   │   ├── StrInstruction.cpp
+│   │   │   └── TrapInstruction.cpp
+│   │   ├── Decoder.cpp
+│   │   ├── Emulator.cpp
+│   │   ├── Memory.cpp
+│   │   └── RegisterFile.cpp
+│   ├── Controller.cpp
+│   └── main.cpp
+├── tests/
+│   └── ... (테스트 파일)
+├── build/
+│   └── ... (빌드 관련 파일 및 디렉토리)
+├── CMakeLists.txt
+└── README.md
 ```
