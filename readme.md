@@ -300,7 +300,7 @@ LC3Emulator/
 
 - **프로젝트 구조**:
 
-  - LC-3 EMulator
+  - LC-3 Emulator
 
     ```plaintext
     📁 LC-3Emulator
