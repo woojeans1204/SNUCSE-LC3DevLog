@@ -294,5 +294,77 @@ LC3Emulator/
   - 추가 디버깅 후 프로그램 완성
 
 - **json 파일 형식**:
+
   - JSON 형식으로 테스트 케이스를 정의하여 간결하고 확장 가능한 구조 설계.
   - 초기 레지스터 값, 메모리 상태, 예상 출력 등을 명시적으로 관리
+
+- **프로젝트 구조**:
+
+  - LC-3 EMulator
+
+    ```plaintext
+    📁 LC-3Emulator
+    ├── 📁 .git                     # Git 관련 파일 (버전 관리)
+    ├── 📁 .vscode                  # VSCode 관련 설정
+    │   └── settings.json
+    ├── 📁 build                    # 빌드 결과물 디렉터리
+    │   ├── 📁 CMakeFiles           # CMake 관련 파일들
+    │   ├── 📁 tests                # 테스트 빌드 결과물
+    │   └── Makefile                # Make 빌드 스크립트
+    ├── 📁 include                  # 헤더 파일 디렉터리
+    │   ├── 📁 Assembler            # 어셈블러 관련 헤더
+    │   ├── 📁 Simulator            # 시뮬레이터 관련 헤더
+    │   └── Controller.h            # 메인 컨트롤러 헤더
+    ├── 📁 sample                   # 샘플 어셈블리 코드
+    │   ├── array.asm               # 배열 관련 샘플
+    │   └── ... (기타 샘플)
+    ├── 📁 src                      # 소스 코드 디렉터리
+    │   ├── 📁 Assembler            # 어셈블러 관련 소스
+    │   ├── 📁 Simulator            # 시뮬레이터 관련 소스
+    │   └── main.cpp                # 진입점 (CLI 프로그램)
+    ├── 📁 tests                    # 단위 테스트
+    │   ├── TestAssembler.cpp       # 어셈블러 테스트
+    │   ├── TestLC3Emulator.cpp     # 에뮬레이터 테스트
+    │   └── ... (기타 테스트 파일)
+    ├── CMakeLists.txt              # CMake 빌드 설정 파일
+    └── README.md                   # 프로젝트 설명 파일
+
+    ```
+
+  - LC-3EducationalProgram
+
+    ```plaintext
+    📁 LC-3EducationalProgram
+    ├── 📁 .git                     # Git 버전 관리 관련 파일
+    ├── 📁 .vscode                  # VSCode 환경 설정
+    ├── 📁 build                    # 빌드 결과물
+    │   ├── 📁 bin                 # 실행 파일
+    │   ├── 📁 CMakeFiles          # CMake 빌드 관련 파일
+    │   ├── cmake_install.cmake    # 설치 스크립트
+    │   ├── CMakeCache.txt         # CMake 캐시
+    │   ├── Makefile               # 빌드 스크립트
+    ├── 📁 include                  # 헤더 파일 디렉터리
+    │   ├── 📁 Assembler           # 어셈블러 관련 헤더
+    │   ├── 📁 nlohmann            # JSON 라이브러리
+    │   ├── 📁 Simulator           # 시뮬레이터 관련 헤더
+    │   ├── Controller.h           # 메인 컨트롤러 헤더
+    │   └── GradingModule.h        # 채점 모듈 헤더
+    ├── 📁 lib                      # 정적 라이브러리
+    │   └── libLC3AssemblerSimulator.a
+    ├── 📁 problems                 # 학습 문제 디렉터리
+    │   ├── 📁 problem1            # 문제 1 파일
+    │   ├── 📁 problem2            # 문제 2 파일
+    │   └── ... (기타 문제)
+    ├── 📁 sample                   # 학습용 샘플 코드
+    ├── 📁 solutions                # 문제별 솔루션 코드
+    ├── 📁 src                      # 소스 코드 디렉터리
+    │   ├── Controller.cpp         # 메인 컨트롤러 구현
+    │   ├── GradingModule.cpp      # 채점 모듈 구현
+    │   └── main.cpp               # 진입점 프로그램
+    ├── answer.asm                  # 사용자 풀이 코드
+    ├── CMAKELISTS.txt              # CMake 빌드 설정 파일
+    ├── LC3EducationalProgram.exe   # 학습 프로그램 실행 파일
+    ├── progress.json               # 학습 진행 상태 저장 파일
+    └── readme.md                   # 프로젝트 설명 파일
+
+    ```
