@@ -3,7 +3,8 @@
 - 서울대학교 컴퓨터공학부 24-2 컴퓨터프로그래밍 강의
 - C++ 프로젝트 과제
 - 1차 결과물: https://github.com/woojeans1204/LC-3Emulator
-
+- 2차 결과물: https://github.com/woojeans1204/LC-3EducationalProgram
+  
 ## 목표
 
 LC-3 어셈블리어의 어셈블러와 시뮬레이터를 구현하고, 이를 활용해 어셈블리어 학습 프로그램을 개발하는 것.
